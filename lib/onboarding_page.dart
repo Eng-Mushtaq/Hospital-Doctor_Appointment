@@ -3,30 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hospital_booking/theme/language_controller.dart';
 import 'category.dart';
+import 'generated/l10n.dart';
 import 'login_page.dart';
 import 'theme/colors.dart';
 
 class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final LanguageController languageController = Get.put(LanguageController());
     Size size = MediaQuery.of(context).size;
-    return CupertinoApp(
-      debugShowCheckedModeBanner: false,
-      home: OnBoardingSlider(
+    return Scaffold(
+      // debugShowCheckedModeBanner: false,
+      body: OnBoardingSlider(
         finishButtonStyle: const FinishButtonStyle(backgroundColor: primary),
         headerBackgroundColor: Colors.white,
-        finishButtonText: 'انشاء حساب ',
+        finishButtonText: S.of(context).CreateNewAccount,
         finishButtonTextStyle:
             GoogleFonts.tajawal().copyWith(color: Colors.white),
         onFinish: () {
           Get.to(Category());
         },
-        trailing: Text('تسجيل الدخول', style: GoogleFonts.tajawal()),
+        trailing: Text(S.of(context).SignIn, style: GoogleFonts.tajawal()),
         trailingFunction: () {
           Get.to(LoginScreen());
         },
-        skipTextButton: Text('تخطي', style: GoogleFonts.tajawal()),
+        skipTextButton: Text(S.of(context).Skip, style: GoogleFonts.tajawal()),
         background: [
           Image.asset(
             'assets/onboarding1.png',
@@ -51,14 +54,46 @@ class OnBoarding extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 const SizedBox(
-                  height: 480,
+                  height: 450,
                 ),
-                Text('مرحبا بكـ', style: title2Text),
+                Text(S.of(context).Onboarding1Title, style: title2Text),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  'نسهل عليك عملية حجز موعد مع الطبيب المناسب في المستشفى من منزلك دون الحاجة للانتظار أو الاتصال.',
+                  S.of(context).SelectLanguage,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Obx(
+                  () => SizedBox(
+                    height: 100,
+                    child: DropdownButton<String>(
+                      dropdownColor: appBgColor,
+                      value: languageController
+                          .selectedLanguage.value, // Set the initial value
+                      onChanged: (newValue) {
+                        languageController.changeLanguage(newValue!);
+                      },
+
+                      items: <String>[
+                        'English',
+                        'العربية',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: TextStyle(color: primary),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                Text(
+                  S.of(context).Onboarding1Desc,
                   style: subTitle,
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
@@ -74,7 +109,7 @@ class OnBoarding extends StatelessWidget {
                   height: 480,
                 ),
                 Text(
-                  'رحلة صحية تبدأ بخطوة واحدة!',
+                  S.of(context).Onboarding2Title,
                   style: title2Text,
                   textAlign: TextAlign.center,
                 ),
@@ -82,7 +117,7 @@ class OnBoarding extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'نؤمن  بأهمية صحتك ونسعى لتسهيل رحلتك العلاجية. يوفر لك التطبيق إمكانية حجز موعد مع الطبيب المناسب في المستشفى من منزلك بسهولة وسرعة.',
+                  S.of(context).Onboarding2Desc,
                   style: subTitle,
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
@@ -98,7 +133,7 @@ class OnBoarding extends StatelessWidget {
                   height: 480,
                 ),
                 Text(
-                  ' احجز موعدك في ثوانٍ',
+                  S.of(context).Onboarding3Title,
                   style: title2Text,
                   textAlign: TextAlign.center,
                 ),
@@ -106,7 +141,7 @@ class OnBoarding extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'مع تطبيقنا، لم يعد الانتظار في طوابير المستشفيات أو الاتصال هاتفيًا لحجز موعد أمرًا ضروريًا. بضغطة زر واحدة، يمكنك حجز موعد مع طبيبك المفضل في الوقت الذي يناسبك.',
+                  S.of(context).Onboarding3Desc,
                   textDirection: TextDirection.rtl,
                   style: subTitle,
                 ),

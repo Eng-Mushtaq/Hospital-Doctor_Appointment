@@ -8,18 +8,23 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.3.0 <4.0.0'
 
-
 dependencies:
   flutter:
     sdk: flutter
 
-
-
   cupertino_icons: ^1.0.6
-  flutter_onboarding_slider:
+  flutter_onboarding_slider: null
   google_fonts: ^6.1.0
   get: ^4.6.5
   dropdown_button2: ^1.9.2
+  flutter_localization:
+  shared_preferences:
+  line_awesome_flutter: any
+  bottom_navy_bar: any
+  badges: any
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -34,13 +39,10 @@ flutter:
   assets:
     - assets/
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -60,3 +62,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true

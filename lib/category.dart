@@ -6,6 +6,7 @@ import '../animations/bottomAnimation.dart';
 import '../theme/colors.dart';
 import '../widgets/backBtnAndImage.dart';
 import 'SignUp.dart';
+import 'generated/l10n.dart';
 
 class Category extends StatelessWidget {
   @override
@@ -17,25 +18,25 @@ class Category extends StatelessWidget {
     Future<bool> _onWillPop() async {
       return (await showDialog(
             context: context,
-            builder: (context) => new AlertDialog(
+            builder: (context) => AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
-              title: new Text(
-                "اغلاق التطبيق",
+              title:  Text(
+                S.of(context).CloseApp,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              content: new Text("هل انت متأكد"),
+              content:  Text(S.of(context).AreYouSure),
               actions: <Widget>[
                 // usually buttons at the bottom of the dialog
                 TextButton(
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<OutlinedBorder>(
-                        StadiumBorder(),
+                        const StadiumBorder(),
                       ),
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
-                  child: new Text(
-                    "لا",
+                  child:  Text(
+                   S.of(context).No,
                     style: TextStyle(color: Colors.blue),
                   ),
                   onPressed: () {
@@ -45,8 +46,8 @@ class Category extends StatelessWidget {
                 TextButton(
                   // shape: StadiumBorder(),
                   // color: Colors.white,
-                  child: new Text(
-                    "نعم",
+                  child:  Text(
+                    S.of(context).Yes,
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () {
@@ -86,7 +87,7 @@ class Category extends StatelessWidget {
                     //     size: height * 0.04,
                     //   ),
                     // ),
-                    Text('نوع المستخدم', style: titleText
+                    Text(S.of(context).UserTtpe, style: titleText
                         //  color: Colors.black, fontSize: height * 0.04),
                         ),
                     BackBtn(),
@@ -101,11 +102,11 @@ class Category extends StatelessWidget {
                     backgroundColor: Colors.black.withOpacity(0.2),
                     radius: height * 0.075,
                     child: Image(
-                      image: AssetImage("assets/doctor.png"),
+                      image: const AssetImage("assets/doctor.png"),
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn('دكتور', context)),
+                  WidgetAnimator(patDocBtn(S.of(context).Doctor, context)),
                   SizedBox(
                     height: height * 0.1,
                   ),
@@ -113,15 +114,15 @@ class Category extends StatelessWidget {
                     backgroundColor: Colors.black.withOpacity(0.2),
                     radius: height * 0.075,
                     child: Image(
-                      image: AssetImage("assets/patient.png"),
+                      image: const AssetImage("assets/patient.png"),
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn('مريض', context)),
+                  WidgetAnimator(patDocBtn(S.of(context).Patient, context)),
                   SizedBox(
                     height: height * 0.13,
                   ),
-                  Column(
+                  const Column(
                     children: <Widget>[
                       Text(
                         'الاصدار',
@@ -134,7 +135,7 @@ class Category extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   )
                 ],
@@ -153,10 +154,10 @@ class Category extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          shape: StadiumBorder(),
+          shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (categoryText == 'دكتور') {
+          if (categoryText == S.of(context).Doctor) {
             Navigator.push(
               context,
               CupertinoPageRoute(
@@ -178,7 +179,7 @@ class Category extends StatelessWidget {
             // Navigator.pushNamed(context, '/PatientLogin');
           }
         },
-        child: Text(" أنا " + categoryText, style: titleText
+        child: Text(S.of(context).Me + categoryText, style: titleText
             // GoogleFonts.notoKufiArabic()
             //     .copyWith(color: Color.fromARGB(255, 21, 107, 177), fontSize: 18),
             ),

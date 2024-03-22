@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 
 import '../theme/colors.dart';
+import 'generated/l10n.dart';
 
 class DoctorSignUpController extends GetxController {
   // var auth = FirebaseAuth.instance;
@@ -19,7 +20,7 @@ class DoctorSignUpController extends GetxController {
   var ageController = TextEditingController();
   var genderController = TextEditingController();
   RxBool isLoading = false.obs;
-    List<String>categories = ['طب أسنان', 'امراض  جلدية', 'القلب','جراحة عامة'];
+    List<String>categories = [S.current.Dental, S.current.Dermatologist, S.current.Heart,S.current.GeneralSurgery];
 
 
 
@@ -30,12 +31,12 @@ class DoctorSignUpController extends GetxController {
 
     RegExp regex = RegExp(pattern);
     if (value.isEmpty) {
-      return "لا يجب ان يكون الايميل فارغا";
+      return S.current.EmailEmptyValidation;
     } else if (!regex.hasMatch(value) ||
         !value.contains(
           '@gmail.com',
         )) {
-      return 'صيغة الايميل غير صحيحة';
+      return S.current.EmailValidationSyntaxError;
     } else {
       return null;
     }
@@ -44,7 +45,7 @@ class DoctorSignUpController extends GetxController {
   String? validateMobile(String? value) {
     // Indian Mobile number are of 10 digit only
     if (value!.isEmpty || value.length != 9) {
-      return 'يجب ان يحتوي رقم الهاتف على 9 أرقام';
+      return S.current.PhoneNumberValidation;
     } else {
       return null;
     }
@@ -53,7 +54,7 @@ class DoctorSignUpController extends GetxController {
   String? validatePassword(String? value) {
     // Indian Mobile number are of 10 digit only
     if (value!.isEmpty || value.length < 6) {
-      return ' يجب ان يكون طول كلمة المرور أكبر من 6 ';
+      return S.current.PasswordValidation;
     } else {
       return null;
     }

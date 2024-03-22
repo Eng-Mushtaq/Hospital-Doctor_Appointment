@@ -6,6 +6,8 @@ import '../animations/bottomAnimation.dart';
 import '../widgets/backBtnAndImage.dart';
 import '../widgets/textField.dart';
 import 'category.dart';
+import 'generated/l10n.dart';
+import 'home.dart';
 import 'theme/colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -57,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                             height: height * 0.1,
                           ),
                           Text(
-                            'تسجيل الدخول',
+                            S.of(context).SignIn,
                             style: titleText,
                           ),
                           // SizedBox(
@@ -67,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                               inputType: TextInputType.emailAddress,
                               controller: emialController,
                               iconData: Icons.email_outlined,
-                              lable: ' البريد الالكتروني',
+                              lable: S.of(context).Email,
                               onSumbmit: () {
                                 FocusScope.of(context).unfocus();
                               }),
@@ -78,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                               inputType: TextInputType.text,
                               controller: passwordController,
                               iconData: Icons.password_outlined,
-                              lable: ' كلمة المرور ',
+                              lable: S.of(context).Password,
                               onSumbmit: () {
                                 FocusScope.of(context).unfocus();
                               }),
@@ -94,6 +96,7 @@ class LoginScreen extends StatelessWidget {
                                 shape: StadiumBorder(),
                               ),
                               onPressed: () {
+                                Get.to(Home());
                                 // loginController.signIn(emialController.text,
                                 //     passwordController.text);
                               },
@@ -111,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(width: height * 0.015),
-                                  Text('تسجيل الدخول',
+                                  Text(S.of(context).SignIn,
                                       style: subTitle.copyWith(
                                           color: Colors.black)),
                                 ],
@@ -126,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'ليس لديك حساب !',
+                                  S.of(context).HaveAccount,
                                   textAlign: TextAlign.center,
                                   style: subTitle.copyWith(
                                     color: Colors.black.withOpacity(0.5),
@@ -135,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                                 TextButton(
                                     onPressed: () => Get.off(() => Category()),
                                     child: Text(
-                                      'انشئ حساب جديد',
+                                      S.of(context).CreateNewAccount,
                                       style: subTitle,
                                     ))
                               ],

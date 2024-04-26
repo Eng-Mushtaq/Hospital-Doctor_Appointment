@@ -7,12 +7,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
-import 'model/doctor_model.dart';
-import 'pages/categoryPage.dart';
-import 'theme/colors.dart';
-import 'widgets/category_box.dart';
-import 'widgets/popular_doctor.dart';
-import 'widgets/textbox.dart';
+import '../model/doctor_model.dart';
+import '../theme/colors.dart';
+import '../widgets/category_box.dart';
+import '../widgets/popular_doctor.dart';
+import '../widgets/textbox.dart';
+import 'categoryPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -117,11 +117,9 @@ class _HomePageState extends State<HomePage> {
                   icon: Icons.details_rounded,
                   color: Colors.purple,
                   onTap: () {
-                    Get.to(
-                      () => CategoryPage(
-                        category: 'طب أسنان',
-                      ),
-                    );
+                    Get.to(() => CategoryPage(
+                          category: 'طب أسنان',
+                        ));
                   },
                 ),
                 CategoryBox(
@@ -164,7 +162,7 @@ class _HomePageState extends State<HomePage> {
             stream: FirebaseFirestore.instance
                 .collection('Doctors')
                 .where('userId', isNotEqualTo: currentUser)
-                .where('userType', isEqualTo: 'Doctor')
+                .where('userType',isEqualTo: 'Doctor')
                 .snapshots(),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
@@ -188,7 +186,8 @@ class _HomePageState extends State<HomePage> {
                       separatorBuilder: (context, index) => SizedBox(width: 5),
                       itemCount: 4),
                 );
-              } else {
+              } 
+              else {
                 return Center(
                   child: Text('لا يوجد اطباء'),
                 );
@@ -213,6 +212,7 @@ class _HomePageState extends State<HomePage> {
               //     ],
               //   ),
               // ),
+            
             },
           ),
         ]),

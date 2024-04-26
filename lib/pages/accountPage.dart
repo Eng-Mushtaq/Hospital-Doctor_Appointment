@@ -1,17 +1,19 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hospital_booking/theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+import '../api/apis.dart';
+import '../controller/doctorSignUpController.dart';
+import '../theme/colors.dart';
 import '../widgets/profile_list_item.dart';
-import 'generated/l10n.dart';
 
 class ProfileScrean extends StatelessWidget {
   const ProfileScrean({super.key});
   @override
   Widget build(BuildContext context) {
     // ImamSignUp controller = Get.put(ImamSignUp(),permanent: true);
-
+    DoctorSignUpController controller = Get.find();
     return Scaffold(
       backgroundColor: appBgColor,
       body: Stack(
@@ -32,33 +34,33 @@ class ProfileScrean extends StatelessWidget {
                     ],
                   ),
                 ),
-                AvatarImage(imageUrl: 'assets/logo.png'),
-                // AvatarImage(imageUrl: controller.doctorData['image']),
+                AvatarImage(imageUrl: controller.doctorData['image']),
                 const SizedBox(
                   height: 20,
                 ),
                 // const SocialIcons(),
                 // const SizedBox(height: 30),
-
-                Text(
-                  S.of(context).UserName,
-                  // controller.doctorData['name'].toString(),
-                  // controller.box.read('userName'),
-                  style: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700,
-                    // fontFamily: "Poppins",
+                if (controller.doctorData['name'] == null)
+                  const CircularProgressIndicator()
+                else
+                  Text(
+                    // 'chromicle',
+                    controller.doctorData['name'].toString(),
+                    // controller.box.read('userName'),
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                      // fontFamily: "Poppins",
+                    ),
                   ),
-                ),
-                // controller.doctorData['email'] == null
-                //     ? const CircularProgressIndicator()
-                //     :
-                Text(
-                  S.of(context).EmailLbl,
-                  // controller.doctorData['email'].toString(),
-                  // controller.box.read('email'),
-                  style: const TextStyle(fontWeight: FontWeight.w300),
-                ),
+                controller.doctorData['email'] == null
+                    ? const CircularProgressIndicator()
+                    : Text(
+                        // '@amFOSS',
+                        controller.doctorData['email'].toString(),
+                        // controller.box.read('email'),
+                        style: const TextStyle(fontWeight: FontWeight.w300),
+                      ),
                 const SizedBox(height: 15),
                 // const Text(
                 //   'Mobile App Developer and Open source enthusiastic',
@@ -121,14 +123,28 @@ class AppBarButton extends StatelessWidget {
 
 class AvatarImage extends StatelessWidget {
   AvatarImage({super.key, this.imageUrl});
-  final String? imageUrl;
+  String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 120,
-        height: 120,
-        padding: const EdgeInsets.all(8),
+      width: 120,
+      height: 120,
+      padding: const EdgeInsets.all(8),
+      decoration:
+          BoxDecoration(shape: BoxShape.circle, color: primary, boxShadow: [
+        BoxShadow(
+          color: appBgColor,
+          offset: const Offset(10, 10),
+          blurRadius: 10,
+        ),
+        BoxShadow(
+          color: appBgColor,
+          offset: const Offset(-10, -10),
+          blurRadius: 10,
+        ),
+      ]),
+      child: Container(
         decoration:
             BoxDecoration(shape: BoxShape.circle, color: primary, boxShadow: [
           BoxShadow(
@@ -142,31 +158,16 @@ class AvatarImage extends StatelessWidget {
             blurRadius: 10,
           ),
         ]),
+        padding: const EdgeInsets.all(3),
         child: Container(
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: primary, boxShadow: [
-            BoxShadow(
-              color: appBgColor,
-              offset: const Offset(10, 10),
-              blurRadius: 10,
-            ),
-            BoxShadow(
-              color: appBgColor,
-              offset: const Offset(-10, -10),
-              blurRadius: 10,
-            ),
-          ]),
-          padding: const EdgeInsets.all(3),
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                // image: NetworkImage(imageUrl!), fit: BoxFit.cover),
-                image: AssetImage(imageUrl!),
-              ),
-            ),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+                image: NetworkImage(imageUrl!), fit: BoxFit.cover),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -235,7 +236,7 @@ class ProfileListItems extends StatelessWidget {
       children: [
         ProfileListItem(
           icon: LineAwesomeIcons.user_shield,
-          text: S.of(context).PrivacyPolicy,
+          text: 'سياسة الخصوصية',
         ),
         // ProfileListItem(
         //   icon: LineAwesomeIcons.history,
@@ -243,22 +244,22 @@ class ProfileListItems extends StatelessWidget {
         // ),
         ProfileListItem(
           icon: LineAwesomeIcons.question_circle,
-          text: S.of(context).HelpSupport,
+          text: 'الدعم والمساعدة',
         ),
         ProfileListItem(
           icon: LineAwesomeIcons.cog,
-          text: S.of(context).Settings,
+          text: 'الاعدادات',
         ),
         ProfileListItem(
           icon: LineAwesomeIcons.user_plus,
-          text: S.of(context).ShareFriends,
+          text: 'دعوة الاصدقاء',
         ),
         ProfileListItem(
           press: () {
-            //
+            APIs.logOut();
           },
           icon: LineAwesomeIcons.alternate_sign_out,
-          text: S.of(context).LogOut,
+          text: 'تسجيل خروج',
           hasNavigation: false,
         ),
       ],

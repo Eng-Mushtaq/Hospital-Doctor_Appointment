@@ -4,9 +4,9 @@ import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hospital_booking/theme/language_controller.dart';
-import 'category.dart';
 import 'generated/l10n.dart';
-import 'login_page.dart';
+import 'pages/category.dart';
+import 'pages/login_page.dart';
 import 'theme/colors.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -74,13 +74,13 @@ class OnBoarding extends StatelessWidget {
                       value: languageController
                           .selectedLanguage.value, // Set the initial value
                       onChanged: (newValue) {
+                        print(newValue);
+                        languageController.selectedLanguage.value != newValue;
                         languageController.changeLanguage(newValue!);
                       },
 
-                      items: <String>[
-                        'English',
-                        'العربية',
-                      ].map<DropdownMenuItem<String>>((String value) {
+                      items: languageController.languages
+                          .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(

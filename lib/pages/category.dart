@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../animations/bottomAnimation.dart';
+
 import '../theme/colors.dart';
 import '../widgets/backBtnAndImage.dart';
 import 'SignUp.dart';
-import 'generated/l10n.dart';
 
 class Category extends StatelessWidget {
   @override
@@ -18,25 +18,25 @@ class Category extends StatelessWidget {
     Future<bool> _onWillPop() async {
       return (await showDialog(
             context: context,
-            builder: (context) => AlertDialog(
+            builder: (context) => new AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
-              title:  Text(
-                S.of(context).CloseApp,
+              title: new Text(
+                "اغلاق التطبيق",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              content:  Text(S.of(context).AreYouSure),
+              content: new Text("هل انت متأكد"),
               actions: <Widget>[
                 // usually buttons at the bottom of the dialog
                 TextButton(
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<OutlinedBorder>(
-                        const StadiumBorder(),
+                        StadiumBorder(),
                       ),
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
-                  child:  Text(
-                   S.of(context).No,
+                  child: new Text(
+                    "لا",
                     style: TextStyle(color: Colors.blue),
                   ),
                   onPressed: () {
@@ -46,8 +46,8 @@ class Category extends StatelessWidget {
                 TextButton(
                   // shape: StadiumBorder(),
                   // color: Colors.white,
-                  child:  Text(
-                    S.of(context).Yes,
+                  child: new Text(
+                    "نعم",
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () {
@@ -69,32 +69,32 @@ class Category extends StatelessWidget {
               // SizedBox(
               //   height: height * 0.065,
               // ),
-
-              Container(
-                margin: EdgeInsets.only(right: width * 0.05),
-                width: width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    // TextButton(
-                    //   style: ButtonStyle(
-                    //       shape: MaterialStateProperty.all(
-                    //     CircleBorder(),
-                    //   )),
-                    //   onPressed: () {},
-                    //   child: Icon(
-                    //     Icons.info,
-                    //     size: height * 0.04,
-                    //   ),
-                    // ),
-                    Text(S.of(context).UserTtpe, style: titleText
-                        //  color: Colors.black, fontSize: height * 0.04),
-                        ),
-                    BackBtn(),
-                  ],
+              
+                Container(
+                  margin: EdgeInsets.only(right: width * 0.05),
+                  width: width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      // TextButton(
+                      //   style: ButtonStyle(
+                      //       shape: MaterialStateProperty.all(
+                      //     CircleBorder(),
+                      //   )),
+                      //   onPressed: () {},
+                      //   child: Icon(
+                      //     Icons.info,
+                      //     size: height * 0.04,
+                      //   ),
+                      // ),
+                      Text('نوع المستخدم', style: titleText
+                          //  color: Colors.black, fontSize: height * 0.04),
+                          ),
+                      BackBtn(),
+                    ],
+                  ),
                 ),
-              ),
-
+              
               SizedBox(height: height * 0.09),
               Column(
                 children: <Widget>[
@@ -102,11 +102,11 @@ class Category extends StatelessWidget {
                     backgroundColor: Colors.black.withOpacity(0.2),
                     radius: height * 0.075,
                     child: Image(
-                      image: const AssetImage("assets/doctor.png"),
+                      image: AssetImage("assets/doctor.png"),
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn(S.of(context).Doctor, context)),
+                  WidgetAnimator(patDocBtn('دكتور', context)),
                   SizedBox(
                     height: height * 0.1,
                   ),
@@ -114,15 +114,15 @@ class Category extends StatelessWidget {
                     backgroundColor: Colors.black.withOpacity(0.2),
                     radius: height * 0.075,
                     child: Image(
-                      image: const AssetImage("assets/patient.png"),
+                      image: AssetImage("assets/patient.png"),
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn(S.of(context).Patient, context)),
+                  WidgetAnimator(patDocBtn('مريض', context)),
                   SizedBox(
                     height: height * 0.13,
                   ),
-                  const Column(
+                  Column(
                     children: <Widget>[
                       Text(
                         'الاصدار',
@@ -135,7 +135,7 @@ class Category extends StatelessWidget {
                       )
                     ],
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 5,
                   )
                 ],
@@ -154,10 +154,10 @@ class Category extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          shape: const StadiumBorder(),
+          shape: StadiumBorder(),
         ),
         onPressed: () {
-          if (categoryText == S.of(context).Doctor) {
+          if (categoryText == 'دكتور') {
             Navigator.push(
               context,
               CupertinoPageRoute(
@@ -179,7 +179,7 @@ class Category extends StatelessWidget {
             // Navigator.pushNamed(context, '/PatientLogin');
           }
         },
-        child: Text(S.of(context).Me + categoryText, style: titleText
+        child: Text(" أنا " + categoryText, style: titleText
             // GoogleFonts.notoKufiArabic()
             //     .copyWith(color: Color.fromARGB(255, 21, 107, 177), fontSize: 18),
             ),

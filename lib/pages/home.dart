@@ -1,14 +1,13 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'generated/l10n.dart';
+import '../theme/colors.dart';
+import 'Doctor/appointmentPage.dart';
+import 'accountPage.dart';
+import 'doctor_page.dart';
 import 'home_page.dart';
-import 'pages/Doctor/appointmentPage.dart';
-import 'pages/accountPage.dart';
-import 'pages/doctor_page.dart';
-import 'theme/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -53,7 +52,7 @@ class _HomeState extends State<Home> {
                 activeColor: primary,
                 inactiveColor: Colors.black,
                 title: Text(
-                  S.of(context).Home,
+                  'الرئيسية',
                   style: subTitle,
                 ),
                 icon: Icon(Icons.home)),
@@ -61,15 +60,23 @@ class _HomeState extends State<Home> {
                 activeColor: primary,
                 inactiveColor: Colors.black,
                 title: Text(
-                  S.of(context).Doctors,
+                  'الأطباء',
                   style: subTitle,
                 ),
-                icon: Icon(Icons.medical_services_rounded)),
+                //     icon: Icon(Icons.medical_services_rounded)),
+                // BottomNavyBarItem(
+                //     activeColor: primary,
+                //     inactiveColor: Colors.black,
+                //     title: Text(
+                //       'الاستشارات',
+                //       style: subTitle,
+                //     ),
+                icon: Icon(CupertinoIcons.chat_bubble_2_fill)),
             BottomNavyBarItem(
                 activeColor: primary,
                 inactiveColor: Colors.black,
                 title: Text(
-                  S.of(context).Appointments,
+                  'الحجوزات',
                   style: subTitle,
                 ),
                 icon: Icon(Icons.event_note_rounded)),
@@ -77,7 +84,7 @@ class _HomeState extends State<Home> {
                 activeColor: primary,
                 inactiveColor: Colors.black,
                 title: Text(
-                  S.of(context).Profile,
+                  'حسابي',
                   style: subTitle,
                 ),
                 icon: Icon(Icons.manage_accounts_rounded)),

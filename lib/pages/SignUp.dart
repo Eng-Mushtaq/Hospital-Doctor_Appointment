@@ -7,12 +7,14 @@ import 'package:get/get.dart';
 
 import '../animations/bottomAnimation.dart';
 import '../controller/doctorSignUpController.dart';
+import '../generated/l10n.dart';
 import '../theme/colors.dart';
 import '../widgets/textField.dart';
 import 'login_page.dart';
 
 class SignUpScreen extends StatelessWidget {
-  final DoctorSignUpController signUpController = Get.find();
+  final DoctorSignUpController signUpController =
+      Get.put(DoctorSignUpController());
 
   // const DoctorSignUpScreen({super.key});
   final bool? isDoctor;
@@ -77,14 +79,17 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             Center(
                                 child: Text(
-                              isDoctor! ? 'دكتور' : 'مريض',
+                              isDoctor!
+                                  ? S.of(context).Doctor
+                                  : S.of(context).Patient,
                               style: titleText,
                             )),
                             SizedBox(
                               height: size.height * 0.02,
                             ),
                             Text(
-                              ' انشاء حساب',
+                              // ' انشاء حساب',
+                              S.of(context).CreateAccount,
                               style: titleText,
                               // "\t\tLogin",
                               // style: GoogleFonts.abel(
@@ -101,7 +106,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.name,
                                 controller: signUpController.nameController,
                                 iconData: Icons.person,
-                                lable: 'الاسم الرباعي',
+                                // lable: 'الاسم الرباعي',
+                                lable: S.of(context).FullName,
                                 onSumbmit: () {
                                   FocusScope.of(context).unfocus();
                                 }),
@@ -112,7 +118,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.emailAddress,
                                 controller: signUpController.emailController,
                                 iconData: Icons.email_outlined,
-                                lable: ' البريد الالكتروني',
+                                // lable: ' البريد الالكتروني',
+                                lable: S.of(context).Email,
                                 onSumbmit: () {
                                   FocusScope.of(context).unfocus();
                                 }),
@@ -123,7 +130,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.text,
                                 controller: signUpController.passwordController,
                                 iconData: Icons.password_outlined,
-                                lable: ' كلمة المرور ',
+                                // lable: ' كلمة المرور ',
+                                lable: S.of(context).Password,
                                 onSumbmit: () {
                                   FocusScope.of(context).unfocus();
                                 }),
@@ -134,7 +142,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.phone,
                                 controller: signUpController.phoneController,
                                 iconData: Icons.phone,
-                                lable: 'رقم الهاتف',
+                                // lable: 'رقم الهاتف',
+                                lable: S.of(context).PhoneNumber,
                                 onSumbmit: () {
                                   FocusScope.of(context).unfocus();
                                 }),
@@ -145,7 +154,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.text,
                                 controller: signUpController.genderController,
                                 iconData: Icons.merge_type,
-                                lable: 'الجنس',
+                                // lable: 'الجنس',
+                                lable: S.of(context).Gender,
                                 onSumbmit: () {
                                   FocusScope.of(context).unfocus();
                                 }),
@@ -168,7 +178,8 @@ class SignUpScreen extends StatelessWidget {
                                     isExpanded: true,
                                     hint: Center(
                                       child: Text(
-                                        ' التخصص',
+                                        // ' التخصص',
+                                        S.of(context).Specialist,
                                         style: subTitle,
                                       ),
                                     ),
@@ -194,7 +205,8 @@ class SignUpScreen extends StatelessWidget {
                                         .toList(),
                                     validator: (value) {
                                       if (value == null) {
-                                        return 'الرجاء تحديد التخصص';
+                                        // return 'الرجاء تحديد التخصص';
+                                        return S.of(context).SpecialWarnning;
                                       }
                                     },
                                     onChanged: (value) {
@@ -226,7 +238,8 @@ class SignUpScreen extends StatelessWidget {
                                     controller: signUpController
                                         .qualificationController,
                                     iconData: Icons.star_border,
-                                    lable: 'المؤهل',
+                                    // lable: 'المؤهل',
+                                    lable: S.of(context).Qualification,
                                     onSumbmit: () {
                                       FocusScope.of(context).unfocus();
                                     },
@@ -239,7 +252,8 @@ class SignUpScreen extends StatelessWidget {
                                     controller:
                                         signUpController.licenceController,
                                     iconData: Icons.star_border,
-                                    lable: 'الرخصة',
+                                    // lable: 'الرخصة',
+                                    lable: S.of(context).License,
                                     onSumbmit: () {
                                       FocusScope.of(context).unfocus();
                                     },
@@ -255,7 +269,8 @@ class SignUpScreen extends StatelessWidget {
                                 inputType: TextInputType.number,
                                 controller: signUpController.ageController,
                                 iconData: Icons.text_rotation_angleup_sharp,
-                                lable: 'العمر',
+                                // lable: 'العمر',
+                                lable: S.of(context).Age,
                               ),
                               visible: isDoctor! ? false : true,
                             ),
@@ -287,7 +302,11 @@ class SignUpScreen extends StatelessWidget {
                                               ),
                                               SizedBox(
                                                   width: size.height * 0.015),
-                                              Text('انشئ الحساب',
+                                              Text(
+                                                  // 'انشئ الحساب',
+                                                  S
+                                                      .of(context)
+                                                      .CreateTheAccount,
                                                   style: subTitle.copyWith(
                                                       color: Colors.black)),
                                               //   style: TextStyle(
@@ -307,7 +326,8 @@ class SignUpScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    ' لديك حساب بالفعل!',
+                                    // ' لديك حساب بالفعل!',
+                                    S.of(context).AlreadyHaveAccount,
                                     textAlign: TextAlign.center,
                                     style: subTitle.copyWith(
                                       color: Colors.black.withOpacity(0.5),
@@ -317,7 +337,8 @@ class SignUpScreen extends StatelessWidget {
                                       onPressed: () =>
                                           Get.off(() => LoginScreen()),
                                       child: Text(
-                                        'قم بتسجيل الدخول',
+                                        // 'قم بتسجيل الدخول',
+                                        S.of(context).SignIn,
                                         style: subTitle,
                                       ))
                                 ],

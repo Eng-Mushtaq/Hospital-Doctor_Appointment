@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
+import '../generated/l10n.dart';
 import '../home.dart';
 import '../theme/colors.dart';
 import '../widgets/mybutton.dart';
@@ -21,7 +21,8 @@ class SuccessBookingPage extends StatelessWidget {
             width: double.infinity,
             alignment: Alignment.center,
             child: Text(
-              'تم الحجز بنجاح',
+              // 'تم الحجز بنجاح',
+              S.of(context).SuccessBooking,
               style: titleText,
             ),
           ),
@@ -33,9 +34,10 @@ class SuccessBookingPage extends StatelessWidget {
             ),
             child: MyButton(
               onTap: () => Get.to(() => Home()),
-              title: 'الرجوع الى الرئيسية',
+              // title: 'الرجوع الى الرئيسية',
+              title: S.of(context).BackHome,
               width: double.infinity,
-              disableButton:false ,
+              disableButton: false,
             ),
           )
         ],

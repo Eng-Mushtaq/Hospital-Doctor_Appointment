@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import '../generated/l10n.dart';
 import '../home.dart';
 import '../model/doctor_model.dart';
 import '../services/doctorService.dart';
@@ -22,7 +23,12 @@ class DoctorSignUpController extends GetxController {
   var ageController = TextEditingController();
   var genderController = TextEditingController();
   RxBool isLoading = false.obs;
-    List<String>categories = ['طب أسنان', 'امراض  جلدية', 'القلب','جراحة عامة'];
+  List<String> categories = [
+    S.current.Dental,
+    S.current.Dermatologist,
+    S.current.Heart,
+    S.current.GeneralSurgery
+  ];
 
   final CollectionReference _userCollectionRef =
       FirebaseFirestore.instance.collection("Doctors");
@@ -52,15 +58,17 @@ class DoctorSignUpController extends GetxController {
           addUserToFirestore(value.user?.uid, userype);
         },
       );
-      Get.offAll(()=>const Home());
+      Get.offAll(() => const Home());
     } on FirebaseAuthException catch (error) {
       isLoading.value = false;
       String? title = error.code;
       String? message;
       if (error.code == 'week-password') {
-        message = 'كلمة المرور ضعيفة ';
+        // message = 'كلمة المرور ضعيفة ';
+        message = S.current.PasswordValidation;
       } else if (error.code == 'email-already-in-use') {
-        message = 'هذا الايميل مستخدم بالفعل ';
+        // message = 'هذا الايميل مستخدم بالفعل ';
+        message = S.current.EmailValidationSyntaxError;
       } else {
         message = error.message.toString();
       }
@@ -79,20 +87,22 @@ class DoctorSignUpController extends GetxController {
 
   void addUserToFirestore(String? userId, String? userType) async {
     await FirestoreUsers()
-        .addUserToFirestore(Doctor(
-      userId: userId,
-      email: emailController.text,
-      name: nameController.text,
-      password: passwordController.text,
-      userType: userType,
-      phoneNumber: phoneController.text,
-      special: specialController.text,
-      address: addressController.text,
-      licence: licenceController.text,
-      image: 'https://cdn-icons-png.flaticon.com/512/5087/5087579.png',
-      qualification: qualificationController.text,
-      createdAt: DateTime.now().toString(),
-    ),)
+        .addUserToFirestore(
+      Doctor(
+        userId: userId,
+        email: emailController.text,
+        name: nameController.text,
+        password: passwordController.text,
+        userType: userType,
+        phoneNumber: phoneController.text,
+        special: specialController.text,
+        address: addressController.text,
+        licence: licenceController.text,
+        image: 'https://cdn-icons-png.flaticon.com/512/5087/5087579.png',
+        qualification: qualificationController.text,
+        createdAt: DateTime.now().toString(),
+      ),
+    )
         .then((value) {
       box.write('userId', userId);
       box.write('userName', nameController.text);
@@ -133,12 +143,13 @@ class DoctorSignUpController extends GetxController {
 
     RegExp regex = RegExp(pattern);
     if (value.isEmpty) {
-      return "لا يجب ان يكون الايميل فارغا";
+      // return "لا يجب ان يكون الايميل فارغا";
+      return S.current.EmailEmptyValidation;
     } else if (!regex.hasMatch(value) ||
         !value.contains(
           '@gmail.com',
         )) {
-      return 'صيغة الايميل غير صحيحة';
+      return S.current.EmailValidationSyntaxError;
     } else {
       return null;
     }
@@ -147,7 +158,8 @@ class DoctorSignUpController extends GetxController {
   String? validateMobile(String? value) {
     // Indian Mobile number are of 10 digit only
     if (value!.isEmpty || value.length != 9) {
-      return 'يجب ان يحتوي رقم الهاتف على 9 أرقام';
+      // return 'يجب ان يحتوي رقم الهاتف على 9 أرقام';
+      return S.current.PhoneNumberValidation;
     } else {
       return null;
     }

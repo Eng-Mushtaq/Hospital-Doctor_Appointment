@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../pages/doctor_profile_page.dart';
 import '../theme/colors.dart';
@@ -69,7 +69,8 @@ class PopularDoctor extends StatelessWidget {
                         width: 2,
                       ),
                       Text(
-                        " تقييم",
+                        // " تقييم",
+                        S.of(context).Reviews,
                         style: subTitle.copyWith(fontSize: 12),
                         // style: TextStyle(fontSize: 12),
                       )

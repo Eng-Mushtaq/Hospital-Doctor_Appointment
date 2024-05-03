@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../api/apis.dart';
 import '../controller/doctorSignUpController.dart';
+import '../generated/l10n.dart';
 import '../theme/colors.dart';
 import '../widgets/profile_list_item.dart';
 
@@ -236,7 +236,8 @@ class ProfileListItems extends StatelessWidget {
       children: [
         ProfileListItem(
           icon: LineAwesomeIcons.user_shield,
-          text: 'سياسة الخصوصية',
+          // text: 'سياسة الخصوصية',
+          text: S.of(context).PrivacyPolicy,
         ),
         // ProfileListItem(
         //   icon: LineAwesomeIcons.history,
@@ -244,22 +245,26 @@ class ProfileListItems extends StatelessWidget {
         // ),
         ProfileListItem(
           icon: LineAwesomeIcons.question_circle,
-          text: 'الدعم والمساعدة',
+          // text: 'الدعم والمساعدة',
+          text: S.of(context).HelpSupport,
         ),
         ProfileListItem(
           icon: LineAwesomeIcons.cog,
-          text: 'الاعدادات',
+          // text: 'الاعدادات',
+          text: S.of(context).Settings,
         ),
         ProfileListItem(
           icon: LineAwesomeIcons.user_plus,
-          text: 'دعوة الاصدقاء',
+          // text: 'دعوة الاصدقاء',
+          text: S.of(context).InviteFriends,
         ),
         ProfileListItem(
           press: () {
             APIs.logOut();
           },
           icon: LineAwesomeIcons.alternate_sign_out,
-          text: 'تسجيل خروج',
+          // text: 'تسجيل خروج',
+          text: S.of(context).LogOut,
           hasNavigation: false,
         ),
       ],

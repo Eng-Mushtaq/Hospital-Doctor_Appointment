@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../animations/bottomAnimation.dart';
 
+import '../generated/l10n.dart';
 import '../theme/colors.dart';
 import '../widgets/backBtnAndImage.dart';
 import 'SignUp.dart';
@@ -22,10 +23,14 @@ class Category extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               title: new Text(
-                "اغلاق التطبيق",
+                // "اغلاق التطبيق",
+                S.of(context).CloseApp,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              content: new Text("هل انت متأكد"),
+              content: new Text(
+                // "هل انت متأكد",
+                S.of(context).AreYouSure,
+              ),
               actions: <Widget>[
                 // usually buttons at the bottom of the dialog
                 TextButton(
@@ -36,7 +41,8 @@ class Category extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
                   child: new Text(
-                    "لا",
+                    // "لا",
+                    S.of(context).No,
                     style: TextStyle(color: Colors.blue),
                   ),
                   onPressed: () {
@@ -47,7 +53,8 @@ class Category extends StatelessWidget {
                   // shape: StadiumBorder(),
                   // color: Colors.white,
                   child: new Text(
-                    "نعم",
+                    // "نعم",
+                    S.of(context).Yes,
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () {
@@ -69,32 +76,38 @@ class Category extends StatelessWidget {
               // SizedBox(
               //   height: height * 0.065,
               // ),
-              
-                Container(
-                  margin: EdgeInsets.only(right: width * 0.05),
-                  width: width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      // TextButton(
-                      //   style: ButtonStyle(
-                      //       shape: MaterialStateProperty.all(
-                      //     CircleBorder(),
-                      //   )),
-                      //   onPressed: () {},
-                      //   child: Icon(
-                      //     Icons.info,
-                      //     size: height * 0.04,
-                      //   ),
-                      // ),
-                      Text('نوع المستخدم', style: titleText
+
+              Container(
+                margin: EdgeInsets.only(right: width * 0.05),
+                width: width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    // TextButton(
+                    //   style: ButtonStyle(
+                    //       shape: MaterialStateProperty.all(
+                    //     CircleBorder(),
+                    //   )),
+                    //   onPressed: () {},
+                    //   child: Icon(
+                    //     Icons.info,
+                    //     size: height * 0.04,
+                    //   ),
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                          // 'نوع المستخدم',
+                          S.of(context).UserTtpe,
+                          style: titleText
                           //  color: Colors.black, fontSize: height * 0.04),
                           ),
-                      BackBtn(),
-                    ],
-                  ),
+                    ),
+                    BackBtn(),
+                  ],
                 ),
-              
+              ),
+
               SizedBox(height: height * 0.09),
               Column(
                 children: <Widget>[
@@ -106,7 +119,10 @@ class Category extends StatelessWidget {
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn('دكتور', context)),
+                  WidgetAnimator(patDocBtn(
+                      // 'دكتور',
+                      S.of(context).Doctor,
+                      context)),
                   SizedBox(
                     height: height * 0.1,
                   ),
@@ -118,7 +134,10 @@ class Category extends StatelessWidget {
                       height: height * 0.2,
                     ),
                   ),
-                  WidgetAnimator(patDocBtn('مريض', context)),
+                  WidgetAnimator(patDocBtn(
+                      // 'مريض',
+                      S.of(context).Patient,
+                      context)),
                   SizedBox(
                     height: height * 0.13,
                   ),
@@ -126,6 +145,7 @@ class Category extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         'الاصدار',
+
                         // 'Version',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
@@ -157,7 +177,9 @@ class Category extends StatelessWidget {
           shape: StadiumBorder(),
         ),
         onPressed: () {
-          if (categoryText == 'دكتور') {
+          if (categoryText ==
+              // 'دكتور'
+              S.of(context).Doctor) {
             Navigator.push(
               context,
               CupertinoPageRoute(
@@ -179,7 +201,7 @@ class Category extends StatelessWidget {
             // Navigator.pushNamed(context, '/PatientLogin');
           }
         },
-        child: Text(" أنا " + categoryText, style: titleText
+        child: Text(S.of(context).Me + categoryText, style: titleText
             // GoogleFonts.notoKufiArabic()
             //     .copyWith(color: Color.fromARGB(255, 21, 107, 177), fontSize: 18),
             ),

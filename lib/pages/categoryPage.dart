@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../theme/colors.dart';
 import '../widgets/doctor_box.dart';
@@ -34,7 +35,7 @@ class _CategoryPageState extends State<CategoryPage> {
         elevation: 0,
         title: Text(
           // "الأطباء",
-          ' قسم : ${widget.category!}',
+          S.of(context).Dept + ' : ' + '${widget.category!}',
           style: titleText.copyWith(
               color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -156,7 +157,7 @@ class _CategoryPageState extends State<CategoryPage> {
           } else {
             return Center(
               child: Text(
-                'لا يوجد لهذا القسم حاليا',
+                S.of(context).NoDoctors,
                 style: subTitle,
               ),
             );

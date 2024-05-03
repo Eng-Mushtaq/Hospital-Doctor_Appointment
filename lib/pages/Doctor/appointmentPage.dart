@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../api/apis.dart';
+import '../../generated/l10n.dart';
 import '../../model/booking.dart';
 import '../../theme/colors.dart';
 
@@ -52,7 +53,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                 APIs.editAppointmentStatus(
                     appointmentId: bookingId!, newStatus: 'cancel');
               },
-              child: Text('Decline'),
+              // child: Text('Decline'),
+              child: Text(S.of(context).Decline),
             ),
           ),
           SizedBox(
@@ -61,7 +63,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
           Expanded(
             child: ElevatedButton(
               onPressed: () {},
-              child: Text('Accept'),
+              // child: Text('Accept'),
+              child: Text(S.of(context).Accept),
               style: ElevatedButton.styleFrom(
                 elevation: 0.5,
                 foregroundColor: Colors.white,
@@ -78,7 +81,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
       return ElevatedButton(
         onPressed: () {},
         child: Text(
-          'Canceled',
+          // 'Canceled',
+          S.of(context).Canceled,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         style: ElevatedButton.styleFrom(
@@ -93,7 +97,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
       return ElevatedButton(
         onPressed: () {},
         child: Text(
-          'Completed',
+          // 'Completed',
+          S.of(context).Completed,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         style: ElevatedButton.styleFrom(
@@ -150,7 +155,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        'جدول الحجوزات',
+                        // 'جدول الحجوزات',
+                        S.of(context).Appointments,
                         style: titleText,
                         textAlign: TextAlign.center,
                       ),
@@ -175,16 +181,19 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                                     child: GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          status = filterStatus;
-                                          // Update the alignment based on the selected status
-                                          _alignment = getAlignmentForStatus(
-                                              filterStatus);
-                                          // Filter the schedules based on the new status
-                                          filterSchduels =
-                                              schedules.where((schedule) {
-                                            return schedule.status ==
-                                                status.name;
-                                          }).toList();
+                                          if (filterStatus ==
+                                              FilterStatus.upcoming) {
+                                            status = FilterStatus.upcoming;
+                                            _alignment = Alignment.centerLeft;
+                                          } else if (filterStatus ==
+                                              FilterStatus.complete) {
+                                            status = FilterStatus.complete;
+                                            _alignment = Alignment.center;
+                                          } else if (filterStatus ==
+                                              FilterStatus.cancel) {
+                                            status = FilterStatus.cancel;
+                                            _alignment = Alignment.centerRight;
+                                          }
                                         });
                                       },
                                       child: Center(
@@ -305,7 +314,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                   );
                 } else {
                   return Center(
-                    child: Text('لا يوجد لديك حجوزات !'),
+                    // child: Text('لا يوجد لديك حجوزات !'),
+                    child: Text(S.of(context).NoAppointments),
                   );
                 }
               }),

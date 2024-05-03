@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hospital_booking/theme/colors.dart';
 
 // import '../helper/my_date_util.dart';
+import '../generated/l10n.dart';
 import '../main.dart';
 import '../model/doctor_model.dart';
 // import '../models/chat_user.dart';
@@ -36,8 +37,8 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
               Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'تاريخ الانضمام: ',
+              Text(
+                S.of(context).GoinDate,
                 style: TextStyle(
                     color: Colors.black87,
                     fontWeight: FontWeight.w500,
@@ -90,14 +91,14 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'About: ',
+                      Text(
+                        S.of(context).About,
                         style: TextStyle(
                             color: Colors.black87,
                             fontWeight: FontWeight.w500,
                             fontSize: 15),
                       ),
-                      Text('About',
+                      Text(S.of(context).About,
                           // widget.user.about,
                           style: const TextStyle(
                               color: Colors.black54, fontSize: 15)),

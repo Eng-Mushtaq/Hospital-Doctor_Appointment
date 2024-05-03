@@ -4,13 +4,14 @@ import 'package:get/get.dart';
 
 import '../animations/bottomAnimation.dart';
 import '../controller/loginController.dart';
+import '../generated/l10n.dart';
 import '../theme/colors.dart';
 import '../widgets/backBtnAndImage.dart';
 import '../widgets/textField.dart';
 import 'category.dart';
 
 class LoginScreen extends StatelessWidget {
-  final LoginController loginController = Get.find();
+  final LoginController loginController = Get.put(LoginController());
 
   final emialController = TextEditingController();
   final passwordController = TextEditingController();
@@ -59,17 +60,19 @@ class LoginScreen extends StatelessWidget {
                                 height: height * 0.1,
                               ),
                               Text(
-                                'تسجيل الدخول',
+                                // 'تسجيل الدخول',
+                                S.of(context).SignIn,
                                 style: titleText,
                               ),
-                              // SizedBox(
-                              //   height: height * 0.05,
-                              // ),
+                              SizedBox(
+                                height: height * 0.02,
+                              ),
                               textField(
                                   inputType: TextInputType.emailAddress,
                                   controller: emialController,
                                   iconData: Icons.email_outlined,
-                                  lable: ' البريد الالكتروني',
+                                  lable: S.of(context).Email,
+                                  // lable: ' البريد الالكتروني',
                                   onSumbmit: () {
                                     FocusScope.of(context).unfocus();
                                   }),
@@ -80,7 +83,8 @@ class LoginScreen extends StatelessWidget {
                                   inputType: TextInputType.text,
                                   controller: passwordController,
                                   iconData: Icons.password_outlined,
-                                  lable: ' كلمة المرور ',
+                                  lable: S.of(context).Password,
+                                  // lable: ' كلمة المرور ',
                                   onSumbmit: () {
                                     FocusScope.of(context).unfocus();
                                   }),
@@ -113,7 +117,8 @@ class LoginScreen extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(width: height * 0.015),
-                                            Text('تسجيل الدخول',
+                                            Text(S.of(context).SignIn,
+                                                // 'تسجيل الدخول',
                                                 style: subTitle.copyWith(
                                                     color: Colors.black)),
                                           ],
@@ -128,7 +133,8 @@ class LoginScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'ليس لديك حساب !',
+                                      // 'ليس لديك حساب !',
+                                      S.of(context).AlreadyHaveAccount,
                                       textAlign: TextAlign.center,
                                       style: subTitle.copyWith(
                                         color: Colors.black.withOpacity(0.5),
@@ -138,7 +144,8 @@ class LoginScreen extends StatelessWidget {
                                         onPressed: () =>
                                             Get.off(() => Category()),
                                         child: Text(
-                                          'انشئ حساب جديد',
+                                          // 'انشئ حساب جديد',
+                                          S.of(context).CreateNewAccount,
                                           style: subTitle,
                                         ))
                                   ],

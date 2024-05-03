@@ -31,58 +31,55 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        body: SizedBox.expand(
-          child: PageView(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() => _currentIndex = index);
-              },
-              children: _pages),
-        ),
-        bottomNavigationBar: BottomNavyBar(
-          selectedIndex: _currentIndex,
-          onItemSelected: (index) {
-            setState(() => _currentIndex = index);
-            _pageController.jumpToPage(index);
-          },
-          items: <BottomNavyBarItem>[
-            BottomNavyBarItem(
-                activeColor: primary,
-                inactiveColor: Colors.black,
-                title: Text(
-                  S.of(context).Home,
-                  style: subTitle,
-                ),
-                icon: Icon(Icons.home)),
-            BottomNavyBarItem(
-                activeColor: primary,
-                inactiveColor: Colors.black,
-                title: Text(
-                  S.of(context).Doctors,
-                  style: subTitle,
-                ),
-                icon: Icon(Icons.medical_services_rounded)),
-            BottomNavyBarItem(
-                activeColor: primary,
-                inactiveColor: Colors.black,
-                title: Text(
-                  S.of(context).Appointments,
-                  style: subTitle,
-                ),
-                icon: Icon(Icons.event_note_rounded)),
-            BottomNavyBarItem(
-                activeColor: primary,
-                inactiveColor: Colors.black,
-                title: Text(
-                  S.of(context).Profile,
-                  style: subTitle,
-                ),
-                icon: Icon(Icons.manage_accounts_rounded)),
-          ],
-        ),
+    return Scaffold(
+      body: SizedBox.expand(
+        child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _currentIndex = index);
+            },
+            children: _pages),
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) {
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(index);
+        },
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+              activeColor: primary,
+              inactiveColor: Colors.black,
+              title: Text(
+                S.of(context).Home,
+                style: subTitle,
+              ),
+              icon: Icon(Icons.home)),
+          BottomNavyBarItem(
+              activeColor: primary,
+              inactiveColor: Colors.black,
+              title: Text(
+                S.of(context).Doctors,
+                style: subTitle,
+              ),
+              icon: Icon(Icons.medical_services_rounded)),
+          BottomNavyBarItem(
+              activeColor: primary,
+              inactiveColor: Colors.black,
+              title: Text(
+                S.of(context).Appointments,
+                style: subTitle,
+              ),
+              icon: Icon(Icons.event_note_rounded)),
+          BottomNavyBarItem(
+              activeColor: primary,
+              inactiveColor: Colors.black,
+              title: Text(
+                S.of(context).Profile,
+                style: subTitle,
+              ),
+              icon: Icon(Icons.manage_accounts_rounded)),
+        ],
       ),
     );
   }

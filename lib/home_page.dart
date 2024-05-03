@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
+import 'generated/l10n.dart';
 import 'model/doctor_model.dart';
 import 'pages/categoryPage.dart';
 import 'theme/colors.dart';
@@ -58,7 +59,9 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
-            child: Text("مرحبا ,",
+            child: Text(
+                // "مرحبا ,",
+                S.of(context).Hello,
                 style: subTitle.copyWith(
                   fontSize: 23,
                   color: primary,
@@ -69,7 +72,9 @@ class _HomePageState extends State<HomePage> {
             height: 5,
           ),
           Container(
-              child: Text('دعنا نبحث لك عن طبيب',
+              child: Text(
+                  // 'دعنا نبحث لك عن طبيب',
+                  S.of(context).LtFndDoctor,
                   style: subTitle.copyWith(
                       fontSize: 18, fontWeight: FontWeight.w600))),
           SizedBox(
@@ -81,7 +86,8 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             child: Text(
-              "الأقسام",
+              // "الأقسام",
+              S.of(context).Dept,
               style: titleText,
               // style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
@@ -93,44 +99,47 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 CategoryBox(
-                  title: "القلب",
+                  // title: "القلب",
+                  title: S.of(context).Heart,
+
                   icon: Icons.favorite,
                   color: Colors.red,
                   onTap: () {
                     Get.to(() => CategoryPage(
-                          category: 'القلب',
+                          category: S.of(context).Heart,
                         ));
                   },
                 ),
                 CategoryBox(
-                  title: "امراض  جلدية",
+                  // title: "امراض  جلدية",
+                  title: S.of(context).Dermatologist,
                   icon: Icons.local_hospital,
                   color: Colors.blue,
                   onTap: () {
                     Get.to(() => CategoryPage(
-                          category: 'امراض  جلدية',
+                          category: S.of(context).Dermatologist,
                         ));
                   },
                 ),
                 CategoryBox(
-                  title: "طب أسنان",
+                  title: S.of(context).Dental,
                   icon: Icons.details_rounded,
                   color: Colors.purple,
                   onTap: () {
                     Get.to(
                       () => CategoryPage(
-                        category: 'طب أسنان',
+                        category: S.of(context).Dental,
                       ),
                     );
                   },
                 ),
                 CategoryBox(
-                  title: "جراحة عامة",
+                  title: S.of(context).GeneralSurgery,
                   icon: Icons.healing_outlined,
                   color: Colors.green,
                   onTap: () {
                     Get.to(() => CategoryPage(
-                          category: 'جراحة عامة',
+                          category: S.of(context).GeneralSurgery,
                         ));
                   },
                 ),
@@ -156,7 +165,7 @@ class _HomePageState extends State<HomePage> {
             height: 25,
           ),
           Container(
-              child: Text("أشهر الأطباء", style: titleText
+              child: Text(S.of(context).PopularDoctors, style: titleText
                   // TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   )),
           SizedBox(height: 10),
@@ -190,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                 );
               } else {
                 return Center(
-                  child: Text('لا يوجد اطباء'),
+                  child: Text(S.of(context).NoDoctors),
                 );
               }
               // SingleChildScrollView(

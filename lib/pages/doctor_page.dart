@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../theme/colors.dart';
 import '../widgets/doctor_box.dart';
@@ -31,7 +32,8 @@ class _DoctorPageState extends State<DoctorPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "الأطباء",
+          // "الأطباء",
+          S.of(context).Doctors,
           style: titleText.copyWith(
               color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -121,7 +123,7 @@ class _DoctorPageState extends State<DoctorPage> {
             );
           } else
             return Center(
-              child: Text('لا يوجد بيانات حاليا'),
+              child: Text(S.of(context).NoDoctors),
             );
         });
   }
@@ -154,7 +156,7 @@ class _DoctorPageState extends State<DoctorPage> {
       );
     } else {
       return Center(
-        child: Text('no data foud'),
+        child: Text(S.of(context).NoDoctors),
       );
     }
   }

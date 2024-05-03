@@ -21,9 +21,8 @@ class LoginController extends GetxController {
   var verId = '';
   var authStatus = ''.obs;
   RxBool isError = false.obs;
-  final DoctorSignUpController Controller = Get.find();
-  final AppointmentController appointmentController =
-      Get.put(AppointmentController());
+  final DoctorSignUpController Controller = Get.put(DoctorSignUpController());
+  final BookingController appointmentController = Get.put(BookingController());
   var auth = FirebaseAuth.instance;
   final box = GetStorage();
   void signIn(String email, String password) {

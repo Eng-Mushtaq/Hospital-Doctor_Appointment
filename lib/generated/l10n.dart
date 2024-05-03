@@ -310,40 +310,40 @@ class S {
     );
   }
 
-  /// `dental`
+  /// `Dental`
   String get Dental {
     return Intl.message(
-      'dental',
+      'Dental',
       name: 'Dental',
       desc: '',
       args: [],
     );
   }
 
-  /// `dermatologist`
+  /// `Dermatologist`
   String get Dermatologist {
     return Intl.message(
-      'dermatologist',
+      'Dermatologist',
       name: 'Dermatologist',
       desc: '',
       args: [],
     );
   }
 
-  /// `heart`
+  /// `Heart`
   String get Heart {
     return Intl.message(
-      'heart',
+      'Heart',
       name: 'Heart',
       desc: '',
       args: [],
     );
   }
 
-  /// `general surgery`
+  /// `General Surgery`
   String get GeneralSurgery {
     return Intl.message(
-      'general surgery',
+      'General Surgery',
       name: 'GeneralSurgery',
       desc: '',
       args: [],
@@ -665,6 +665,276 @@ class S {
     return Intl.message(
       'You Don\'t have Appointments',
       name: 'NoAppointments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get Search {
+    return Intl.message(
+      'Search',
+      name: 'Search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get Reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'Reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Going Date:`
+  String get GoinDate {
+    return Intl.message(
+      'Going Date:',
+      name: 'GoinDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About:`
+  String get About {
+    return Intl.message(
+      'About:',
+      name: 'About',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor Info`
+  String get DrAbout {
+    return Intl.message(
+      'Doctor Info',
+      name: 'DrAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book an Appointment`
+  String get BookAppointment {
+    return Intl.message(
+      'Book an Appointment',
+      name: 'BookAppointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Working Hours`
+  String get WorkHours {
+    return Intl.message(
+      'Working Hours',
+      name: 'WorkHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Of`
+  String get Of {
+    return Intl.message(
+      'Of',
+      name: 'Of',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient Reviews `
+  String get PatientsReviews {
+    return Intl.message(
+      'Patient Reviews ',
+      name: 'PatientsReviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successful Consultations`
+  String get SuccessCons {
+    return Intl.message(
+      'Successful Consultations',
+      name: 'SuccessCons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Years`
+  String get Years {
+    return Intl.message(
+      'Years',
+      name: 'Years',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience`
+  String get Experience {
+    return Intl.message(
+      'Experience',
+      name: 'Experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successful`
+  String get Successful {
+    return Intl.message(
+      'Successful',
+      name: 'Successful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Certificates Obtained`
+  String get ObtCertificates {
+    return Intl.message(
+      'Certificates Obtained',
+      name: 'ObtCertificates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help And Support`
+  String get SupportAndHelp {
+    return Intl.message(
+      'Help And Support',
+      name: 'SupportAndHelp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invite Friends`
+  String get InviteFriends {
+    return Intl.message(
+      'Invite Friends',
+      name: 'InviteFriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get Logout {
+    return Intl.message(
+      'Logout',
+      name: 'Logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get Cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'Cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accept`
+  String get Accept {
+    return Intl.message(
+      'Accept',
+      name: 'Accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Decline`
+  String get Decline {
+    return Intl.message(
+      'Decline',
+      name: 'Decline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Canceled`
+  String get Canceled {
+    return Intl.message(
+      'Canceled',
+      name: 'Canceled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Declined`
+  String get Declined {
+    return Intl.message(
+      'Declined',
+      name: 'Declined',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get Completed {
+    return Intl.message(
+      'Completed',
+      name: 'Completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upcoming`
+  String get Upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'Upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Booking Added Successfully`
+  String get SuccessBooking {
+    return Intl.message(
+      'Your Booking Added Successfully',
+      name: 'SuccessBooking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back To Home Screen`
+  String get BackHome {
+    return Intl.message(
+      'Back To Home Screen',
+      name: 'BackHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm the Appointment`
+  String get ConfirmBookin {
+    return Intl.message(
+      'Confirm the Appointment',
+      name: 'ConfirmBookin',
       desc: '',
       args: [],
     );

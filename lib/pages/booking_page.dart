@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../controller/appointmentsController.dart';
 import '../controller/bookingController.dart';
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../theme/colors.dart';
 import '../theme/helper/convertDate.dart';
@@ -40,7 +42,8 @@ class _BookingScreenState extends State<BookingScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "حجز موعد",
+          // "حجز موعد",
+          S.of(context).BookAppointment,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
       ),
@@ -111,7 +114,8 @@ class _BookingScreenState extends State<BookingScreen> {
               child: MyButton(
                 disableButton: !_timeSelected || !_dateSelected,
                 bgColor: primary,
-                title: 'تأكيد الحجز',
+                // title: 'تأكيد الحجز',
+                title: S.of(context).ConfirmBookin,
                 onTap: () {
                   appointmentController
                       .getUserData(FirebaseAuth.instance.currentUser!.uid);

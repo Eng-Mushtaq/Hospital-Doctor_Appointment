@@ -22,14 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "About": MessageLookupByLibrary.simpleMessage("About:"),
+        "Accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "Age": MessageLookupByLibrary.simpleMessage("Age"),
         "AlreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
             " You already have an account!"),
         "Appointments": MessageLookupByLibrary.simpleMessage("Appointments"),
         "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "AreYouSure": MessageLookupByLibrary.simpleMessage("Are You Sure!"),
+        "BackHome": MessageLookupByLibrary.simpleMessage("Back To Home Screen"),
+        "BookAppointment":
+            MessageLookupByLibrary.simpleMessage("Book an Appointment"),
+        "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "Canceled": MessageLookupByLibrary.simpleMessage("Canceled"),
         "CloseApp":
             MessageLookupByLibrary.simpleMessage("close the application"),
+        "Completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "ConfirmBookin":
+            MessageLookupByLibrary.simpleMessage("Confirm the Appointment"),
         "Consultations": MessageLookupByLibrary.simpleMessage("Consultations"),
         "CreateAccount":
             MessageLookupByLibrary.simpleMessage("create an account "),
@@ -37,11 +47,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create a new account"),
         "CreateTheAccount":
             MessageLookupByLibrary.simpleMessage("Create Account"),
-        "Dental": MessageLookupByLibrary.simpleMessage("dental"),
+        "Decline": MessageLookupByLibrary.simpleMessage("Decline"),
+        "Declined": MessageLookupByLibrary.simpleMessage("Declined"),
+        "Dental": MessageLookupByLibrary.simpleMessage("Dental"),
         "Dept": MessageLookupByLibrary.simpleMessage("Departments"),
-        "Dermatologist": MessageLookupByLibrary.simpleMessage("dermatologist"),
+        "Dermatologist": MessageLookupByLibrary.simpleMessage("Dermatologist"),
         "Doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
         "Doctors": MessageLookupByLibrary.simpleMessage("Doctors"),
+        "DrAbout": MessageLookupByLibrary.simpleMessage("Doctor Info"),
         "Email": MessageLookupByLibrary.simpleMessage("Email"),
         "EmailEmptyValidation": MessageLookupByLibrary.simpleMessage(
             "The email doesn\'t have to be empty."),
@@ -49,18 +62,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "EmailValidationSyntaxError": MessageLookupByLibrary.simpleMessage(
             "The email syntax is incorrect"),
         "English": MessageLookupByLibrary.simpleMessage("English"),
+        "Experience": MessageLookupByLibrary.simpleMessage("Experience"),
         "FullName": MessageLookupByLibrary.simpleMessage("full name"),
         "Gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "GeneralSurgery":
-            MessageLookupByLibrary.simpleMessage("general surgery"),
+            MessageLookupByLibrary.simpleMessage("General Surgery"),
+        "GoinDate": MessageLookupByLibrary.simpleMessage("Going Date:"),
         "HaveAccount":
             MessageLookupByLibrary.simpleMessage("You don\'t have an account!"),
-        "Heart": MessageLookupByLibrary.simpleMessage("heart"),
+        "Heart": MessageLookupByLibrary.simpleMessage("Heart"),
         "Hello": MessageLookupByLibrary.simpleMessage("Hello ,"),
         "HelpSupport": MessageLookupByLibrary.simpleMessage("Help and Support"),
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
+        "InviteFriends": MessageLookupByLibrary.simpleMessage("Invite Friends"),
         "License": MessageLookupByLibrary.simpleMessage("license"),
         "LogOut": MessageLookupByLibrary.simpleMessage("Logout"),
+        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "LtFndDoctor":
             MessageLookupByLibrary.simpleMessage("Let\'s search for a doctor"),
         "Me": MessageLookupByLibrary.simpleMessage("I\'m a "),
@@ -70,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "NoData": MessageLookupByLibrary.simpleMessage(" No Data Found"),
         "NoDoctors":
             MessageLookupByLibrary.simpleMessage("There are no doctors"),
+        "ObtCertificates":
+            MessageLookupByLibrary.simpleMessage("Certificates Obtained"),
+        "Of": MessageLookupByLibrary.simpleMessage("Of"),
         "Onboarding1Desc": MessageLookupByLibrary.simpleMessage(
             "We make it easier for you to book an appointment with the right hospital doctor from your home without having to wait or call."),
         "Onboarding1Title": MessageLookupByLibrary.simpleMessage("Welcome"),
@@ -85,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordValidation": MessageLookupByLibrary.simpleMessage(
             " Password length should be greater than 6 "),
         "Patient": MessageLookupByLibrary.simpleMessage("Patient"),
+        "PatientsReviews":
+            MessageLookupByLibrary.simpleMessage("Patient Reviews "),
         "PhoneNumber": MessageLookupByLibrary.simpleMessage("Phone"),
         "PhoneNumberValidation": MessageLookupByLibrary.simpleMessage(
             "Phone number should contain 9 digits"),
@@ -93,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Qualification": MessageLookupByLibrary.simpleMessage("Qualification"),
+        "Reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+        "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "SelectLanguage":
             MessageLookupByLibrary.simpleMessage("Select The Language"),
         "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -103,8 +127,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "SpecialWarnning": MessageLookupByLibrary.simpleMessage(
             "Please select the specialist"),
         "Specialist": MessageLookupByLibrary.simpleMessage("Special"),
+        "SuccessBooking": MessageLookupByLibrary.simpleMessage(
+            "Your Booking Added Successfully"),
+        "SuccessCons":
+            MessageLookupByLibrary.simpleMessage("Successful Consultations"),
+        "Successful": MessageLookupByLibrary.simpleMessage("Successful"),
+        "SupportAndHelp":
+            MessageLookupByLibrary.simpleMessage("Help And Support"),
+        "Upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "UserName": MessageLookupByLibrary.simpleMessage("User Name"),
         "UserTtpe": MessageLookupByLibrary.simpleMessage("User Type"),
+        "WorkHours": MessageLookupByLibrary.simpleMessage("Working Hours"),
+        "Years": MessageLookupByLibrary.simpleMessage("Years"),
         "Yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

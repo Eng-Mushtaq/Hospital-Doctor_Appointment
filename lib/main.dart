@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
     final LanguageController languageController = Get.put(LanguageController());
     languageController.selectedLanguage.value = savedLanguage;
     return GetMaterialApp(
-      initialBinding: Binding(),
       locale: languageController.selectedLanguage.value == 'English'
           ? const Locale('en')
           : const Locale('ar'),
@@ -50,6 +49,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: OnBoarding(),
+      initialBinding: Binding(),
     );
   }
 }

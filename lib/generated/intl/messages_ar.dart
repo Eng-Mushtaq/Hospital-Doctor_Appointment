@@ -22,23 +22,34 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "About": MessageLookupByLibrary.simpleMessage("حول"),
+        "Accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "Age": MessageLookupByLibrary.simpleMessage("العمر"),
         "AlreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage(" لديك حساب بالفعل!"),
         "Appointments": MessageLookupByLibrary.simpleMessage("الحجوزات"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "AreYouSure": MessageLookupByLibrary.simpleMessage("هل انت متأكد !"),
+        "BackHome": MessageLookupByLibrary.simpleMessage("الرجوع الى الرئيسية"),
+        "BookAppointment": MessageLookupByLibrary.simpleMessage("حجز موعد"),
+        "Cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
+        "Canceled": MessageLookupByLibrary.simpleMessage("ملغية"),
         "CloseApp": MessageLookupByLibrary.simpleMessage("اغلاق التطبيق"),
+        "Completed": MessageLookupByLibrary.simpleMessage("مكتملة"),
+        "ConfirmBookin": MessageLookupByLibrary.simpleMessage("تأكيد الحجز"),
         "Consultations": MessageLookupByLibrary.simpleMessage("الاستشارات"),
         "CreateAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب "),
         "CreateNewAccount":
             MessageLookupByLibrary.simpleMessage("انشئ حساب جديد"),
         "CreateTheAccount": MessageLookupByLibrary.simpleMessage("انشئ الحساب"),
+        "Decline": MessageLookupByLibrary.simpleMessage("رفض"),
+        "Declined": MessageLookupByLibrary.simpleMessage("مرفوضة"),
         "Dental": MessageLookupByLibrary.simpleMessage("طب أسنان"),
         "Dept": MessageLookupByLibrary.simpleMessage("الأقسام"),
         "Dermatologist": MessageLookupByLibrary.simpleMessage("امراض  جلدية"),
         "Doctor": MessageLookupByLibrary.simpleMessage("دكتور"),
         "Doctors": MessageLookupByLibrary.simpleMessage("الأطباء"),
+        "DrAbout": MessageLookupByLibrary.simpleMessage("معلومات الدكتور"),
         "Email": MessageLookupByLibrary.simpleMessage(" البريد الالكتروني"),
         "EmailEmptyValidation": MessageLookupByLibrary.simpleMessage(
             "لا يجب ان يكون الايميل فارغا"),
@@ -46,16 +57,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "EmailValidationSyntaxError":
             MessageLookupByLibrary.simpleMessage("صيغة الايميل غير صحيحة"),
         "English": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "Experience": MessageLookupByLibrary.simpleMessage("الخبره"),
         "FullName": MessageLookupByLibrary.simpleMessage("الاسم الرباعي"),
         "Gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "GeneralSurgery": MessageLookupByLibrary.simpleMessage("جراحة عامة"),
+        "GoinDate": MessageLookupByLibrary.simpleMessage("تاريخ الانضمام:"),
         "HaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب !"),
         "Heart": MessageLookupByLibrary.simpleMessage("القلب"),
         "Hello": MessageLookupByLibrary.simpleMessage("مرحبا ,"),
         "HelpSupport": MessageLookupByLibrary.simpleMessage("الدعم والمساعدة"),
         "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "InviteFriends": MessageLookupByLibrary.simpleMessage("دعوة الاصدقاء"),
         "License": MessageLookupByLibrary.simpleMessage("الرخصة"),
         "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
+        "Logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "LtFndDoctor":
             MessageLookupByLibrary.simpleMessage("دعنا نبحث لك عن طبيب"),
         "Me": MessageLookupByLibrary.simpleMessage("انا"),
@@ -64,6 +79,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد لديك حجوزات"),
         "NoData": MessageLookupByLibrary.simpleMessage("لا يوجد بيانات حاليا"),
         "NoDoctors": MessageLookupByLibrary.simpleMessage("لا يوجد اطباء"),
+        "ObtCertificates":
+            MessageLookupByLibrary.simpleMessage("الشهادات الحاصل عليها"),
+        "Of": MessageLookupByLibrary.simpleMessage("من"),
         "Onboarding1Desc": MessageLookupByLibrary.simpleMessage(
             "نسهل عليك عملية حجز موعد مع الطبيب المناسب في المستشفى من منزلك دون الحاجة للانتظار أو الاتصال."),
         "Onboarding1Title": MessageLookupByLibrary.simpleMessage("مرحبا بكـ"),
@@ -79,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordValidation": MessageLookupByLibrary.simpleMessage(
             " يجب ان يكون طول كلمة المرور أكبر من 6 "),
         "Patient": MessageLookupByLibrary.simpleMessage("مريض"),
+        "PatientsReviews": MessageLookupByLibrary.simpleMessage("تقييم المرضى"),
         "PhoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "PhoneNumberValidation": MessageLookupByLibrary.simpleMessage(
             "يجب ان يحتوي رقم الهاتف على 9 أرقام"),
@@ -86,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "Profile": MessageLookupByLibrary.simpleMessage("حسابي"),
         "Qualification": MessageLookupByLibrary.simpleMessage("المؤهل"),
+        "Reviews": MessageLookupByLibrary.simpleMessage("التقييمات"),
+        "Search": MessageLookupByLibrary.simpleMessage("البحث"),
         "SelectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "Settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "ShareFriends": MessageLookupByLibrary.simpleMessage("دعوة الاصدقاء"),
@@ -95,8 +116,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "SpecialWarnning":
             MessageLookupByLibrary.simpleMessage("الرجاء تحديد التخصص"),
         "Specialist": MessageLookupByLibrary.simpleMessage("التخصص"),
+        "SuccessBooking":
+            MessageLookupByLibrary.simpleMessage("تم الحجز بنجاح"),
+        "SuccessCons": MessageLookupByLibrary.simpleMessage("استشارات ناجحة"),
+        "Successful": MessageLookupByLibrary.simpleMessage("ناجحه"),
+        "SupportAndHelp":
+            MessageLookupByLibrary.simpleMessage("الدعم والمساعده"),
+        "Upcoming": MessageLookupByLibrary.simpleMessage("قادمة"),
         "UserName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "UserTtpe": MessageLookupByLibrary.simpleMessage("نوع المستخدم"),
+        "WorkHours": MessageLookupByLibrary.simpleMessage("أوقات الدوام"),
+        "Years": MessageLookupByLibrary.simpleMessage("سنين"),
         "Yes": MessageLookupByLibrary.simpleMessage("نعم")
       };
 }

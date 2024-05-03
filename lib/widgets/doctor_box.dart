@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../theme/colors.dart';
 
@@ -80,7 +80,7 @@ class DoctorBox extends StatelessWidget {
                     width: 2,
                   ),
                   Text(
-                    " التقييم ${5} ",
+                    S.of(context).Reviews + 5.toString(),
                     // " التقييم ${doctor["review"]} ",
                     style: subTitle.copyWith(fontSize: 12),
                     //  TextStyle(fontSize: 12),

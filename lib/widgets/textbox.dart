@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import '../theme/colors.dart';
 
 class CustomTextBox extends StatelessWidget {
@@ -16,7 +17,7 @@ class CustomTextBox extends StatelessWidget {
         decoration: InputDecoration(
             prefixIcon: Icon(Icons.search, color: Colors.grey),
             border: InputBorder.none,
-            hintText: "البحث",
+            hintText: S.of(context).Search,
             hintStyle: subTitle.copyWith(color: Colors.grey, fontSize: 17)
             // TextStyle(color: Colors.grey, fontSize: 17),
             ),

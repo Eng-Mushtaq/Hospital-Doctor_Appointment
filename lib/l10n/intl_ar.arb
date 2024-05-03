@@ -61,7 +61,36 @@
     "Settings": "الاعدادات",
     "ShareFriends": "دعوة الاصدقاء",
     "LogOut": "تسجيل خروج",
-    "NoAppointments": "لا يوجد لديك حجوزات"
+    "NoAppointments": "لا يوجد لديك حجوزات",
+    "Search": "البحث",
+    "Reviews": "التقييمات",
+    "GoinDate": "تاريخ الانضمام:",
+    "About": "حول",
+    "DrAbout": "معلومات الدكتور",
+    "BookAppointment": "حجز موعد",
+    "WorkHours": "أوقات الدوام",
+    "Of": "من",
+    "PatientsReviews": "تقييم المرضى",
+    "SuccessCons": "استشارات ناجحة",
+    "Years": "سنين",
+    "Experience": "الخبره",
+    "Successful": "ناجحه",
+    "ObtCertificates": "الشهادات الحاصل عليها",
+    "SupportAndHelp": "الدعم والمساعده",
+    "InviteFriends": "دعوة الاصدقاء",
+    "Logout": "تسجيل الخروج",
+    "Cancel": "الغاء",
+    "Accept":"قبول",
+    "Decline": "رفض" ,
+    "Canceled": "ملغية",
+    "Declined": "مرفوضة",
+    "Completed":"مكتملة",
+    "Upcoming": "قادمة",
+    "SuccessBooking": "تم الحجز بنجاح",
+    "BackHome": "الرجوع الى الرئيسية",
+    "ConfirmBookin": "تأكيد الحجز"
+
+
 
 
     

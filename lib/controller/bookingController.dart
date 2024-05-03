@@ -1,12 +1,10 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../model/booking.dart';
 import '../model/doctor_model.dart';
 import '../pages/succes_booking_page.dart';
 
-class AppointmentController extends GetxController {
+class BookingController extends GetxController {
   // Variables to store user and appointment details
   var userType = ''.obs;
   var doctor = Rx<Doctor?>(null);

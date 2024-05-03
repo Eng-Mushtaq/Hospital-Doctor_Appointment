@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../generated/l10n.dart';
 import '../model/doctor_model.dart';
 import '../theme/colors.dart';
 import '../widgets/contact_box.dart';
@@ -26,7 +27,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "معلومات الدكتور",
+          S.of(context).DrAbout,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
       ),
@@ -36,7 +37,8 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
         child: MyButton(
             disableButton: false,
             bgColor: primary,
-            title: 'حجز موعد',
+            // title: 'حجز موعد',
+            title: S.of(context).BookAppointment,
             // title: "Request For Appointment",
             onTap: () {
               Get.to(
@@ -56,7 +58,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("اوقات الدوام 5:00pm - 8:00am",
+          Text(" 5:00pm - 8:00am" + S.of(context).WorkHours,
               style: TextStyle(fontSize: 13, color: Colors.green)),
           SizedBox(
             height: 25,
@@ -77,7 +79,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                     height: 5,
                   ),
                   Text(
-                    'التخصص : ${widget.doctor.special}',
+                    S.of(context).Specialist + ' ${widget.doctor.special}',
                     // "Dentist Specialist",
                     style: TextStyle(color: Colors.grey, fontSize: 14),
                   ),
@@ -125,13 +127,13 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
           SizedBox(
             height: 5,
           ),
-          Text("4.0 من 5.0",
+          Text("4.0 ${S.of(context).Of} 5.0",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
           SizedBox(
             height: 3,
           ),
           Text(
-            "340 تقييم المرضى",
+            S.of(context).PatientsReviews,
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
           SizedBox(
@@ -167,13 +169,13 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             children: [
               DoctorInfoBox(
                 value: "500+",
-                info: "استشارات ناجحة",
+                info: S.of(context).SuccessCons,
                 icon: Icons.groups_rounded,
                 color: Colors.green,
               ),
               DoctorInfoBox(
-                value: "10 سنين",
-                info: "الخبرة",
+                value: "10 ${S.of(context).Years}",
+                info: S.of(context).Experience,
                 icon: Icons.medical_services_rounded,
                 color: Colors.purple,
               ),
@@ -187,13 +189,13 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             children: [
               DoctorInfoBox(
                 value: "28+",
-                info: "ناجحة OT",
+                info: "${S.of(context).Successful} OT",
                 icon: Icons.bloodtype_rounded,
                 color: Colors.blue,
               ),
               DoctorInfoBox(
                 value: "8+",
-                info: "الشهادات الحاصل عليها",
+                info: S.of(context).ObtCertificates,
                 icon: Icons.card_membership_rounded,
                 color: Colors.orange,
               ),
